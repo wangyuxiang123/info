@@ -15,7 +15,7 @@ send = os.environ.get('SEND', '')
 receive = os.environ.get('RECEIVE', '')
 
 
-def sendMessage(text, send, receive, key, ):
+def sendMessage(text, send, receive, key):
     msg_from = send  # 发送方邮箱
     passwd = key  # 填入发送方邮箱的授权码
     msg_to = receive  # 收件人邮箱
@@ -54,7 +54,7 @@ for review in html:
 print("infoNew:", infoNew)
 
 if infoNew != infoOld:
-    sendMessage("请到官网查看")
+    sendMessage("请到官网查看", send, receive, key)
 
 # 更新通知列表
 with open("info.txt", "w", encoding='utf-8') as f:
