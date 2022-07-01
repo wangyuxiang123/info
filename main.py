@@ -39,7 +39,7 @@ if os.path.exists("info.txt"):
     # 读取本地数据
     with open("info.txt", "r", encoding='utf-8') as file:
         infoOld = file.readlines()
-    # print(infoOld)
+    print("infoOld:", infoOld)
 
 # 获取新内容
 soup = BeautifulSoup(requests.get(url).content.decode('utf-8'), "html.parser")
@@ -51,7 +51,7 @@ for review in html:
     title = titleName + titleTime + "\n"
     infoNew.append(title)
 
-# print(infoNew)
+print("infoNew", infoNew)
 
 if infoNew != infoOld:
     sendMessage("请到官网查看")
@@ -59,3 +59,4 @@ if infoNew != infoOld:
 # 更新通知列表
 with open("info.txt", "w", encoding='utf-8') as f:
     f.writelines(infoNew)
+    print("写入成功")
