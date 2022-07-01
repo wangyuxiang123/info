@@ -51,7 +51,7 @@ for review in html:
     title = titleName + titleTime + "\n"
     infoNew.append(title)
 
-print("infoNew", infoNew)
+print("infoNew:", infoNew)
 
 if infoNew != infoOld:
     sendMessage("请到官网查看")
