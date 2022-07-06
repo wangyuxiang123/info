@@ -11,7 +11,7 @@ key = os.environ.get('KEY', '')
 send = os.environ.get('SEND', '')
 receive = os.environ.get('RECEIVE', '')
 
-oneday = 86400
+# oneday = 86400
 "一天的时间戳相差 86400"
 
 
@@ -63,7 +63,8 @@ for review in html[:1]:
     titleTime = review.select("span")[0].text
     newUrl = "https://yzw.xpu.edu.cn/" + review.select("a")[0].get("href")[2:]
 
-    if unix_time(titleTime) + oneday == now:
+    if unix_time(titleTime) == now:
+        print("新通知提醒,请访问:\n" + newUrl)
         sendMessage("新通知提醒,请访问:\n" + newUrl, send, receive, key)
     else:
         print("暂无新通知")
